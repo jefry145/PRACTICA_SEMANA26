@@ -1,0 +1,35 @@
+<mat-grid-list cols="1" rowHeight="270px">
+    
+            <mat-grid-tile>
+                <form [formGroup]="formLogin">
+                    <mat-card>
+                        <mat-card-header>
+                            <h1>Inicio de sesion</h1>
+                        </mat-card-header>
+                        <mat-card-content>
+                         <mat-form-field appearance="fill">
+                            <mat-label>Name:</mat-label>
+                            <input matInput formControlName="user">
+                           </mat-form-field>
+                          <mat-form-field appearance="fill">
+                            <mat-label>Password:</mat-label>
+                            <input matInput formControlName="pass">
+                          </mat-form-field>
+                         </mat-card-content>
+                         <button mat-raised-button color="primary" (click)="enviar()" [disabled]="formLogin.invalid">Login</button>
+                    </mat-card>
+                </form>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <table>
+                    <thead>
+                        <th>User</th>
+                        <th>Password</th>
+                    </thead>
+                    <tbody *ngFor="let element of datos">
+                        <td>{{element.username}}</td>
+                        <td>{{element.email}}</td>
+                    </tbody>
+                </table>
+          </mat-grid-tile>
+</mat-grid-list>
